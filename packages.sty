@@ -1,0 +1,56 @@
+\ProvidesPackage{packages}
+
+% Layout and typography
+\usepackage[british]{babel}
+\usepackage{lmodern}
+% Loaded to suppress warnings due to microtype and siunitx
+% http://tex.stackexchange.com/a/74673
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{appendixnumberbeamer}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% Graphics
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{subcaption}
+\usepackage{tikz-feynman}
+\usepackage{tikz-3dplot}
+
+% Maths and symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[detect-weight=true, detect-family=true, binary-units=true, separate-uncertainty=true]{siunitx}
+\sisetup{group-separator={,},range-units=single}
+\usepackage[version=4]{mhchem}
+\usepackage{alxprc}
+
+\hypersetup{%
+  colorlinks,
+  % Citations, using \cite
+  citecolor=structure,
+  % URLs, using \href and \url
+  % urlcolor=mPurple,
+  urlcolor=structure,
+  % Internal links, such as \ref and \footnote
+  linkcolor=
+}
+
+% Suppress hyperref warnings due to commands used in titles
+\pdfstringdefDisableCommands{%
+  \let\,\empty%
+}
+
+% Even if the sidebar was hidden with [plain], the slide contents wouldn't be
+% centred as the sidebar 'width' is still present
+% This defines a new frame environment were the contents *will* be centered
+% It accepts one (optional) argument, which is passed to the frame environment
+\newenvironment{centeredframe}[1][c]{%
+	\setlength{\hoffset}{-0.5\csname beamer@sidebarwidth\endcsname}
+	\begin{frame}[plain,#1]
+}{%
+	\end{frame}
+}

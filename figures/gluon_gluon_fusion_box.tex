@@ -1,0 +1,7 @@
+\feynmandiagram [large, layered layout, horizontal=a to b] {
+  % Draw the top and bottom lines
+  i1 [particle=\(\Pgluon\)] -- [gluon] a -- [anti fermion] b [particle=\(\APquark\)],
+  i2 [particle=\(\Pgluon\)] -- [gluon] c -- [fermion] d [particle=\(\Pquark\)],
+  % Draw the two internal fermion lines
+  { [same layer] a -- [fermion] c },
+};

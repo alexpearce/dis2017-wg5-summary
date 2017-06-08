@@ -1,0 +1,47 @@
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+% Flat, circular bullets
+% Using \bullet as \textbullet doesn't play well with lmodern and textcomp
+% http://tex.stackexchange.com/q/135164/45857
+\setbeamertemplate{itemize items}{$\bullet$}
+% Just show numbers for enumerate
+\setbeamertemplate{enumerate items}[default]
+% Rounded block corners
+\setbeamertemplate{blocks}[rounded]
+% Frame number in the footer
+\setbeamertemplate{footline}[frame number]
+% Remove navigation
+\beamertemplatenavigationsymbolsempty
+
+% I am a professional, and so should use professional fonts
+% \usefonttheme{professionalfonts}
+
+% Define theme colours
+\definecolor{mBody}{RGB}{34,34,34}
+\definecolor{mPurple}{RGB}{77,67,113}
+\definecolor{mRed}{RGB}{255 0,0}
+\definecolor{mWhite}{RGB}{245,245,247}
+
+% Structure colour sets the overall tone
+\setbeamercolor{structure}{fg=mPurple}
+
+% Copy
+\setbeamercolor{normal text}{fg=mBody}
+\setbeamercolor{alerted text}{fg=mRed!80}
+
+% Blocks
+\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg}
+\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+
+% Remove fade from block title bg colour to body background colour
+\pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
+  color(0pt)=(lower.bg); color(4pt)=(lower.bg); color(4pt)=(upper.bg)}
+
+\mode
+<all>
